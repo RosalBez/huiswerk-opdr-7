@@ -161,3 +161,93 @@ const inventory = [
     sold: 8,
   },
 ];
+
+console.log('***************************************************************opdr 1******************************')
+console.log('opdr 1a')
+
+
+//gebruik een array methode (filter, find of map) om een array te maken met alle tv type namen
+//zorg ervoor dat je ittereert over de hele array
+//de map methode zorgt ervoor dat er een nieuwe array ontstaat
+//zorg dat je een nieuwe variabele hebt waarnaar je de entrys kunt pushen en geef een return
+
+const tvTypeNames = inventory.map((tvTypeName) => {
+  return  tvTypeName.name
+})
+
+console.log(tvTypeNames)
+
+
+
+console.log('opdr 1b')
+//array methode
+//je wilt dat hij alle hele objecten logt die uitverkocht zijn
+//je wilt meerder objecten terug krijgen dus je kunt alleen map of filter gebruiken
+// ik gebruik filter want dan kan ik aangeven dat ze op out of stock moeten staan en dan pas tevoorschijn mogen komen
+//je hebt original in stock
+// je hebt sold
+// en je wilt alleen weten welke original - stock = 0 zijn
+
+const outOfStocks = inventory.filter((outOfStock) => {
+  if (outOfStock.originalStock - outOfStock.sold === 0) {
+    return outOfStock
+  }
+})
+
+console.log(outOfStocks)
+
+console.log('opdr 1c')
+
+//arraymethode
+// je wilt hele objecten dus map of filter
+// als (if) ambi light ja is dan moet ie hem eruit gooien
+// je wilt ze aLLemaal dus je kunt geen find gebruiken
+
+const oneCisTrue = inventory.filter((oneC) => {
+  if (oneC.options.ambiLight === true ) {
+    return oneC
+  }
+})
+
+console.log(oneCisTrue)
+
+console.log('opdr 1d')
+
+//array methode voor sorteren is sort
+//voor het sorteren van laag naar hoog gebruik je A - B
+//
+
+const tvPrices = inventory.sort((a, b) => {
+  if (a > b) {
+    return 1;
+  }
+  if (a < b ) {
+    return -1;
+  }
+
+  return 0;
+})
+
+
+console.log(tvPrices)
+
+console.log('***************************************************************opdr 2******************************')
+
+//array methode, je wilt weten hoeveel tvs'onder het kopje sold bij elkaar getelt zijn
+
+console.log('opdr 2a')
+function tvSolds (inventory) {
+  let tvSold = 0;
+  for (let i = 0; i < inventory.length; i++) {
+    tvSold += inventory[i].sold;
+  }
+  return tvSold
+}
+
+const totalTvSolds = tvSolds(inventory)
+console.log('het totaal aantal verkochtte tv\\\s is ' + totalTvSolds)
+
+
+console.log('opdr 2b')
+
+const totalSolds = document.getElementById('totalSolds')
