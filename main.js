@@ -235,7 +235,7 @@ console.log('***************************************************************opdr
 
 //array methode, je wilt weten hoeveel tvs'onder het kopje sold bij elkaar getelt zijn
 
-console.log('opdr 2a')
+console.log('opdr 2a+b')
 function tvSolds (inventory) {
   let tvSold = 0;
   for (let i = 0; i < inventory.length; i++) {
@@ -244,10 +244,33 @@ function tvSolds (inventory) {
   return tvSold
 }
 
+
 const totalTvSolds = tvSolds(inventory)
-console.log('het totaal aantal verkochtte tv\\\s is ' + totalTvSolds)
+console.log('het totaal aantal verkochtte tv/s is ' + totalTvSolds)
 
-
-console.log('opdr 2b')
 
 const totalSolds = document.getElementById('totalSolds')
+console.log(totalSolds)
+
+totalSolds.textContent = totalTvSolds
+
+
+
+console.log('opdr 2c+d')
+
+function tvStocked (inventory) {
+  let tvStock = 0;
+  for (let i = 0; i < inventory.length; i++) {
+    tvStock += inventory[i].originalStock;
+  }
+  return tvStock
+}
+
+const totalTvsInStock = tvStocked(inventory)
+console.log('het totaal aantal ingekochtte tv/s is ' + totalTvsInStock)
+
+
+
+const totalStock = document.getElementById('totalStocked')
+console.log(totalStock)
+totalStock.textContent = totalTvsInStock
