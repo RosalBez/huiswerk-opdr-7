@@ -274,3 +274,34 @@ console.log('het totaal aantal ingekochtte tv/s is ' + totalTvsInStock)
 const totalStock = document.getElementById('totalStocked')
 console.log(totalStock)
 totalStock.textContent = totalTvsInStock
+
+console.log('***************************************************************opdr 3******************************')
+
+//je wilt een nieuwe array
+// je hoeft geen hele objecten dus je kunt filter gebruiken
+console.log('opdr 3a')
+const brandsOfTvs = inventory.map((tvBrands) => {
+  return tvBrands.brand
+})
+console.log(brandsOfTvs)
+
+const listOfBrands = document.getElementById('listOfBrands')
+console.log(listOfBrands)
+listOfBrands.textContent = brandsOfTvs
+
+console.log('opdr 3b')
+function getBrands(inventory) {
+  const brands = [];
+
+  for (let i = 0; i < inventory.length; i++) {
+    brands.push(inventory[i].brand);
+  }
+
+  return brands;
+}
+
+getBrands(inventory)
+
+const brands = getBrands(inventory);
+console.log(brands)
+console.log('***************************************************************opdr 3******************************')
